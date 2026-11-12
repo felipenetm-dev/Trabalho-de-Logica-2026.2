@@ -2,7 +2,7 @@
 
 Projeto avaliativo da disciplina **Lógica para Ciências da Computação**.
 
-**Autores:** [Nome do aluno 1] e [Nome do aluno 2]
+**Autores:** Felipe Chrysostomo Santos e Gabriel Ribeiro Carrascoso.
 
 ## Sobre o sistema
 
