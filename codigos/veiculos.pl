@@ -118,3 +118,18 @@ familiar(M) :-
     L >= 5, L < 7,
     portamalas(M, Litros),
     Litros >= 400.
+
+% REGRA 6 - trabalho(M)
+% Para trabalho: picape ou utilitario que carregue pelo menos 600 kg.
+trabalho(M) :-
+    carro(M, _, Categoria, _),
+    member(Categoria, [picape, utilitario]),
+    carga(M, Kg),
+    Kg >= 600.
+
+% REGRA 7 - fora_de_estrada(M)
+% Off-road: SUV ou picape com tracao integral (4x4).
+fora_de_estrada(M) :-
+    tracao(M, integral),
+    carro(M, _, Categoria, _),
+    member(Categoria, [suv, picape]).
