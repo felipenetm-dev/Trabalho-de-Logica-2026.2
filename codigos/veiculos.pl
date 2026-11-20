@@ -133,3 +133,22 @@ fora_de_estrada(M) :-
     tracao(M, integral),
     carro(M, _, Categoria, _),
     member(Categoria, [suv, picape]).
+    
+% REGRA 8 - faixa_preco(M, Faixa)
+% Classifica o veiculo em uma faixa de preco (valores em mil reais).
+faixa_preco(M, popular) :-
+    preco(M, P), P =< 100.
+faixa_preco(M, intermediario) :-
+    preco(M, P), P > 100, P =< 200.
+faixa_preco(M, premium) :-
+    preco(M, P), P > 200, P =< 400.
+faixa_preco(M, luxo) :-
+    preco(M, P), P > 400.
+
+% REGRA 9 - primeiro_carro(M)
+% Indicado para quem vai comprar o primeiro carro:
+% preco popular, economico e NAO esportivo.
+primeiro_carro(M) :-
+    faixa_preco(M, popular),
+    economico(M),
+    \+ esportivo(M).
