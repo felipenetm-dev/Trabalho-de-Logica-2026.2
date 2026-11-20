@@ -72,3 +72,13 @@ tracao(corollahibrido, dianteira). tracao(seal, integral).
 tracao(havalh6, integral).  tracao(spin, dianteira).
 tracao(strada, dianteira).   tracao(hilux, integral).
 tracao(sprinter, traseira).  tracao(mustang, traseira).
+
+/*REGRAS LOGICAS*/
+% REGRA 1 - economico(M)
+% Um veiculo e economico se for eletrico OU se fizer 13 km/l ou mais.
+% (Duas clausulas = "OU" logico em Prolog.)
+economico(M) :-
+    carro(M, _, _, eletrico).
+economico(M) :-
+    consumo(M, KmL),
+    KmL >= 13.0.
