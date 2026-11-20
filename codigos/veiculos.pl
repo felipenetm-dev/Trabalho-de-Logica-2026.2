@@ -82,3 +82,9 @@ economico(M) :-
 economico(M) :-
     consumo(M, KmL),
     KmL >= 13.0.
+
+% REGRA 2 - sustentavel(M)
+% Sustentavel = movido a energia eletrica ou hibrido.
+sustentavel(M) :-
+    carro(M, _, _, Combustivel),
+    member(Combustivel, [eletrico, hibrido]).
