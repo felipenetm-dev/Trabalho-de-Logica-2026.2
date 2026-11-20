@@ -98,3 +98,23 @@ esportivo(M) :-
     potencia(M, CV),
     CV >= 400,
     \+ carro(M, _, esportivo, _).
+
+% REGRA 4 - urbano(M)
+% Bom para a cidade: todo hatch, ou um seda economico que nao seja esportivo.
+urbano(M) :-
+    carro(M, _, hatch, _).
+urbano(M) :-
+    carro(M, _, sedan, _),
+    economico(M),
+    \+ esportivo(M).
+    
+% REGRA 5 - familiar(M)
+% Familiar: 7 lugares ou mais, OU 5-6 lugares com porta-malas >= 400 L.
+familiar(M) :-
+    qlugares(M, L),
+    L >= 7.
+familiar(M) :-
+    qlugares(M, L),
+    L >= 5, L < 7,
+    portamalas(M, Litros),
+    Litros >= 400.
