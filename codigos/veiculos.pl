@@ -88,3 +88,13 @@ economico(M) :-
 sustentavel(M) :-
     carro(M, _, _, Combustivel),
     member(Combustivel, [eletrico, hibrido]).
+    
+% REGRA 3 - esportivo(M)
+% E esportivo se a categoria ja e "esportivo" OU se tem 400 cv ou mais.
+% O "\+" (negacao) evita repetir o mesmo carro nas duas clausulas.
+esportivo(M) :-
+    carro(M, _, esportivo, _).
+esportivo(M) :-
+    potencia(M, CV),
+    CV >= 400,
+    \+ carro(M, _, esportivo, _).
