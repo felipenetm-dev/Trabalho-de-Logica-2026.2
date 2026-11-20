@@ -152,3 +152,20 @@ primeiro_carro(M) :-
     faixa_preco(M, popular),
     economico(M),
     \+ esportivo(M).
+    
+% REGRA 10 - finalidade(M, F)
+% Junta as classificacoes acima em um unico predicado.
+% Permite perguntar tanto "para que serve a hilux?" quanto
+% "quais carros servem para trabalho?".
+finalidade(M, urbano)          :- urbano(M).
+finalidade(M, familiar)        :- familiar(M).
+finalidade(M, trabalho)        :- trabalho(M).
+finalidade(M, fora_de_estrada) :- fora_de_estrada(M).
+finalidade(M, esportivo)       :- esportivo(M).
+
+% REGRA 11 - recomendar(Finalidade, Orcamento, M)
+% Recomenda veiculos que atendem a finalidade e cabem no orcamento.
+recomendar(Finalidade, Orcamento, M) :-
+    finalidade(M, Finalidade),
+    preco(M, P),
+    P =< Orcamento.
